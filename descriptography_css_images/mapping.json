@@ -1,0 +1,88 @@
+{
+  "urls": {
+    "lJgCd": "images/lJgCd.jpg",
+    "oXcQs": "images/oXcQs.jpg"
+  },
+  "positions": {
+    "sLoLv": {
+      "width": "7px",
+      "float": "left",
+      "height": "15px"
+    },
+    "uHmIc": {
+      "width": "7px",
+      "float": "left",
+      "height": "15px"
+    }
+  },
+  "slices": {
+    "dNoUm": {
+      "background-position": "-208px -65px"
+    },
+    "aZeLk": {
+      "background-position": "-192px -23px"
+    },
+    "kAdUu": {
+      "background-position": "-120px -2px"
+    },
+    "wPcCs": {
+      "background-position": "-104px -23px"
+    },
+    "uKuYv": {
+      "background-position": "-376px -2px"
+    },
+    "wYiZr": {
+      "background-position": "-240px -65px"
+    },
+    "gBzKv": {
+      "background-position": "-312px -65px"
+    },
+    "vQuEp": {
+      "background-position": "-592px -23px"
+    },
+    "fCjTw": {
+      "background-position": "-416px -44px",
+      "width": "5px !important"
+    },
+    "nVcAx": {
+      "background-position": "-264px -44px"
+    },
+    "oWnQy": {
+      "background-position": "-280px -65px"
+    },
+    "kCzQeZ": {
+      "background-position": "-184px -2px"
+    },
+    "iNnTvZ": {
+      "background-position": "-216px -2px"
+    },
+    "nCiRiZ": {
+      "background-position": "-280px -65px"
+    },
+    "pVqGdZ": {
+      "background-position": "-312px -2px"
+    },
+    "pMgRuZ": {
+      "background-position": "-232px -44px"
+    },
+    "iNeGgZ": {
+      "background-position": "-96px -23px",
+      "width": "5px !important"
+    },
+    "dIrHyZ": {
+      "background-position": "-176px -44px"
+    },
+    "kXuYrZ": {
+      "background-position": "-448px -2px"
+    },
+    "pRfPhZ": {
+      "background-position": "-384px -65px"
+    },
+    "qNdXfZ": {
+      "background-position": "-472px -2px"
+    },
+    "oJuTvZ": {
+      "background-position": "-256px -23px"
+    }
+  }
+}
