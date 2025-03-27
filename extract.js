@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { promises as fs } from 'fs'
+import fs, { promises } from 'fs'
 
 const fetchLigaPokemon = async (url) => {
   try {
@@ -10,7 +10,7 @@ const fetchLigaPokemon = async (url) => {
         }
       })
 
-    await fs.writeFile('liga.html', response.data)
+    await promises.writeFile('liga.html', response.data)
     return response.data
   } catch (err) {
     console.error("Error fetching Liga Pokemon: ", err)
@@ -62,7 +62,7 @@ const getCheapestCards = ({
 
         return {
           qualidade: quality.label,
-          preco: Number(card.precoFinal),
+          preco: getCardPrice(card),
           idioma: dataLanguage.find(language => language.id == card.idioma).label
         }
       })
@@ -71,6 +71,49 @@ const getCheapestCards = ({
     return firstCardsByQuality
   } catch (err) {
     console.error("Error getting cheapest cards: ", err)
+  }
+}
+
+const getCardPrice = (card) => {
+  try {
+    switch (true) {
+      case !!card.precoFinal:
+        return Number(card.precoFinal)
+      case !!card.precoCss:
+        return getCardPrecoCss(card.precoCss)
+      default:
+        return null
+    }
+  } catch (err) {
+    console.error("Error getting card price: ", err)
+  }
+}
+
+const getCardPrecoCss = (precoCss) => {
+  try {
+    const cssPricesDecoded = JSON.parse(fs.readFileSync('css_prices_decoded.json', 'utf-8'))
+    
+    const precoCssSplitted = precoCss
+      .split(';')
+      .map(priceCss => {
+        if (priceCss == 'V') return '.'
+        const priceCssPartSplitted = priceCss.split(' ')
+        
+        console.log(priceCssPartSplitted)
+        Object.entries(cssPricesDecoded).forEach(([key, value]) => {
+          if (priceCssPartSplitted.every(part => key.includes(part))) {
+            console.log("deu certo")
+            return value
+          }
+        })
+      })
+      .filter(price => price)
+      .join('')
+
+    console.log(precoCssSplitted)
+    return Number(precoCssSplitted)
+  } catch (err) {
+    console.error("Error getting card precoCss: ", err)
   }
 }
 
